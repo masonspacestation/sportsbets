@@ -124,3 +124,79 @@ const players = [
     skill: 100
   },
 ]
+
+
+
+
+function draftTeams() {
+  console.log("Drafting Teams")
+
+  players.forEach((player) => {
+    // console.log(player.emoji)
+
+    let randomNumber = Math.floor(Math.random() * 10)
+    // console.log("🐟", randomNumber)
+
+    if (randomNumber >= 5) {
+      player.teamNumber = 2
+      // console.log(player.name, player.teamNumber)
+    } else {
+      player.teamNumber = 1
+      // console.log(player.name, player.teamNumber)
+      // drawTeam1()
+
+    }
+  })
+  drawTeam1()
+  drawTeam2()
+}
+
+let team1Players = players.filter((player) => {
+  return player.teamNumber == 1
+})
+
+// done the new way
+function drawTeam1() {
+  let team1Players = players.filter((player) => {
+    return player.teamNumber == 1
+  })
+  drawAll(team1Players)
+}
+
+function drawAll(team) {
+  let team1HTML = ''
+
+  team.forEach((player) => {
+    console.log('💿', player.name, player.teamNumber)
+    team1HTML += `<span>${player.emoji}</span>`
+  })
+
+  // return team1HTML
+  let team1Roster = document.getElementById("team-1-roster")
+  team1Roster.innerHTML = team1HTML
+}
+
+// done the old way
+function drawTeam2() {
+  let team2Roster = ''
+  for (let i = 0; i < players.length; i++) {
+    let player = players[i]
+
+    if (player.teamNumber == 2) {
+      team2Roster += player.emoji
+    }
+  }
+  console.log(team2Roster)
+
+  let team2RosterElm = document.getElementById("team-2-roster")
+  team2RosterElm.innerText = team2Roster
+}
+
+function betTeam1(amount) {
+  console.log("placed bet for 1", amount)
+
+
+}
+
+
+draftTeams()
