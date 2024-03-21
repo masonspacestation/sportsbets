@@ -15,11 +15,11 @@
 
 <body class="debug">
   <header class="bg-dark text-center fw-bold p-2">
-    <h1 class="text-light ">Header</h1>
+    <h1 class="text-light ">Place yer bets 🐎</h1>
   </header>
 
   <main class="container-fluid">
-    <div class="row justify-content-center align-content-center" id="bank">Bank</div>
+    <div class="row justify-content-center align-content-center" id="bank-display">$100</div>
 
     <!-- SECTION play area -->
     <section class="row justify-content-center align-content-center" id="play-area">
@@ -33,10 +33,11 @@
 
         <!-- SECTION buttons -->
         <div class="row justify-content-around mt-3">
-          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam1(100)">Team 1 100</button>
-          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam1(200)">Team 1 200</button>
-          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam1(300)">Team 1 300</button>
-          <button class="btn btn-primary rounded rounded-pill col-6 mt-3" onclick="betTeam1(bank)">Team 1 Bank</button>
+          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam1(5)">Bet 5</button>
+          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam1(25)">Bet 25</button>
+          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam1(100)">Bet 100</button>
+          <button class="btn btn-primary rounded rounded-pill col-6 mt-3" onclick="betTeam1(bank)">Bet it
+            All</button>
 
         </div>
       </section>
@@ -51,16 +52,17 @@
 
         <!-- SECTION buttons -->
         <div class="row justify-content-around mt-3">
-          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam2(100)">Team 2 100</button>
-          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam2(200)">Team 2 200</button>
-          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam2(300)">Team 2 300</button>
-          <button class="btn btn-primary rounded rounded-pill col-6 mt-3" onclick="betTeam2(bank)">Team 2 Bank</button>
+          <button class="btn btn-danger rounded rounded-pill col-3" onclick="betTeam2(5)">Bet 5</button>
+          <button class="btn btn-danger rounded rounded-pill col-3" onclick="betTeam2(25)">Bet 25</button>
+          <button class="btn btn-danger rounded rounded-pill col-3" onclick="betTeam2(100)">Bet 100</button>
+          <button class="btn btn-danger rounded rounded-pill col-6 mt-3" onclick="betTeam2(bank)">Bet it All</button>
 
         </div>
       </section>
-      <div class="col-4 bg-dark bg-opacity-50">
-        <div id="team-2-roster"></div>
-      </div>
+      <!-- <div class="col-4 bg-dark bg-opacity-50">
+        <button class="btn btn-primary rounded rounded-pill mt-3" onclick="compareSkills()">Comparison
+          Test</button>
+      </div> -->
   </main>
 
   <script src="app.js"></script>
