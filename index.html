@@ -13,23 +13,54 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="debug">
   <header class="bg-dark text-center fw-bold p-2">
     <h1 class="text-light ">Header</h1>
   </header>
 
-  <main class="container">
-    <section class="row justify-content-around align-content-center">
-      <div class="col-4 bg-dark bg-opacity-50">
-        <div id="team-1-roster">
+  <main class="container-fluid">
+    <div class="row justify-content-center align-content-center" id="bank">Bank</div>
+
+    <!-- SECTION play area -->
+    <section class="row justify-content-center align-content-center" id="play-area">
+      <!-- STUB team 1 section -->
+      <section id="team-1-section" class="col-6 text-center">
+        <div class="row justify-content-center">
+          <h3>Team 1</h3>
+          <div id="team-1-roster" class="col-10 bg-dark bg-opacity-50 rounded-2 text-center p-5"></div>
+        </div>
+
+
+        <!-- SECTION buttons -->
+        <div class="row justify-content-around mt-3">
+          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam1(100)">Team 1 100</button>
+          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam1(200)">Team 1 200</button>
+          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam1(300)">Team 1 300</button>
+          <button class="btn btn-primary rounded rounded-pill col-6 mt-3" onclick="betTeam1(bank)">Team 1 Bank</button>
 
         </div>
-        <button class="btn btn-primary rounded" onclick="betTeam1(200)">Bet Team 1</button>
-      </div>
+      </section>
+
+      <!-- STUB team 2 section -->
+      <section id="team-2-section" class="col-6 text-center">
+        <div class="row justify-content-center">
+          <h3>Team 1</h3>
+          <div id="team-2-roster" class="col-10 bg-dark bg-opacity-50 rounded-2 text-center p-5"></div>
+        </div>
+
+
+        <!-- SECTION buttons -->
+        <div class="row justify-content-around mt-3">
+          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam2(100)">Team 2 100</button>
+          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam2(200)">Team 2 200</button>
+          <button class="btn btn-primary rounded rounded-pill col-3" onclick="betTeam2(300)">Team 2 300</button>
+          <button class="btn btn-primary rounded rounded-pill col-6 mt-3" onclick="betTeam2(bank)">Team 2 Bank</button>
+
+        </div>
+      </section>
       <div class="col-4 bg-dark bg-opacity-50">
         <div id="team-2-roster"></div>
       </div>
-    </section>
   </main>
 
   <script src="app.js"></script>

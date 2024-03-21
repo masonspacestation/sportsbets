@@ -125,50 +125,130 @@ const players = [
   },
 ]
 
+//this was an attempt to create new objects, or a new array
+// 
+//  let team1 = {
+//   name: '',
+//   teamNumber: 1,
+//   emoji: '',
+//   skill: 0
+// }
+
+// let team2 = {
+//   name: '',
+//   teamNumber: 2,
+//   emoji: '',
+//   skill: 0
+// }
 
 
+
+// players.forEach((player) => {
+//   return player.teamNumber == 1,
+//     team1 += player
+// let team2 = []
+// players.forEach((player) => {
+//   return player.teamNumber == 2,
+//     team2 += player.name
+// })
 
 function draftTeams() {
   console.log("Drafting Teams")
 
   players.forEach((player) => {
-    // console.log(player.emoji)
 
     let randomNumber = Math.floor(Math.random() * 10)
-    // console.log("🐟", randomNumber)
 
     if (randomNumber >= 5) {
       player.teamNumber = 2
-      // console.log(player.name, player.teamNumber)
+
     } else {
       player.teamNumber = 1
-      // console.log(player.name, player.teamNumber)
-      // drawTeam1()
 
     }
   })
+
   drawTeam1()
   drawTeam2()
 }
 
-let team1Players = players.filter((player) => {
-  return player.teamNumber == 1
-})
 
-// done the new way
+// done the new way — activates drawAll()
 function drawTeam1() {
-  let team1Players = players.filter((player) => {
+  let team1Roster = players.filter((player) => {
     return player.teamNumber == 1
   })
-  drawAll(team1Players)
+  drawAll(team1Roster)
+  addTeam1Skills(team1Roster)
+  let team1skillelm = addTeam1Skills()
 }
 
+
+// done the old way — all-inclusive function
+function drawTeam2() {
+  let team2Roster = ''
+  let team2skills = 0
+
+  for (let i = 0; i < players.length; i++) {
+    let player = players[i]
+
+    if (player.teamNumber == 2) {
+      team2Roster += player.emoji
+      console.log('1');
+      team2skills += player.skill
+      console.log('2');
+    }
+  }
+  console.log(team2Roster)
+
+  let team2RosterElm = document.getElementById("team-2-roster")
+  team2RosterElm.innerText = team2Roster
+  addTeam2Skills(team2skills)
+}
+
+
+
+function addTeam1Skills(team) {
+  let team1Skills = team.filter((player) => {
+    console.log(player.skill, 'team1skill')
+    return player.skill
+  })
+  team1Skills += player.skill
+  console.log('🏆', team1Skills)
+  // let player = players[i]
+
+  // if (player.teamNumber == 1) {
+  //   team1Skills += player.skill
+  //   console.log(team1Skills);
+  // }
+  // }
+}
+
+function addTeam2Skills(team) {
+  console.log('team2skills!:', team)
+  // let team2Skills = 0
+  // for (let i = 0; i < players.length; i++) {
+  //   let player = players[i]
+
+  //   if (player.teamNumber == 2) {
+  //     team2Skills += player.skill
+  //     console.log(team2Skills);
+  //   }
+  // }
+}
+// let team1Points = 0,
+// let playerPoints = players.filter((player) => {
+//   return player.teamNumber
+//   team1Points += playerPoints
+// })
+
 function drawAll(team) {
+  // drawAll() currently only used for team1
   let team1HTML = ''
 
-  team.forEach((player) => {
-    console.log('💿', player.name, player.teamNumber)
-    team1HTML += `<span>${player.emoji}</span>`
+  team.filter((player) => {
+    console.log('💿', player.name, player.teamNumber, player.skill)
+    team1HTML += `<span title="${player.name}">${player.emoji}</span>`
   })
 
   // return team1HTML
@@ -176,20 +256,23 @@ function drawAll(team) {
   team1Roster.innerHTML = team1HTML
 }
 
-// done the old way
-function drawTeam2() {
-  let team2Roster = ''
-  for (let i = 0; i < players.length; i++) {
-    let player = players[i]
+function team1CombinedSkill() {
+  let team1CombinedSkillElm = 0
 
-    if (player.teamNumber == 2) {
-      team2Roster += player.emoji
-    }
-  }
-  console.log(team2Roster)
+  let team1CombinedSkill = players.filter((player) => {
+    player.teamNumber == 1
+    return team1CombinedSkillElm
+    // team1CombinedSkillElm += 
+  })
 
-  let team2RosterElm = document.getElementById("team-2-roster")
-  team2RosterElm.innerText = team2Roster
+  console.log(team1CombinedSkill);
+  console.log(team1CombinedSkillElm);
+
+}
+
+function team2CombinedSkill() {
+  let team2CS = players.filter((player) => player.teamNumber == 2)
+
 }
 
 function betTeam1(amount) {
@@ -197,6 +280,5 @@ function betTeam1(amount) {
 
 
 }
-
 
 draftTeams()
